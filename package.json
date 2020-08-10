@@ -1,0 +1,37 @@
+{
+  "name": "casas.bahia.e2e",
+  "version": "1.0.0",
+  "description": "Projeto Via Varejo do site Casas Bahia",
+  "scripts": {
+    "test": "npx wdio ./config/local.conf.js",
+    "allure-report": "allure generate ./allure-results --clean && allure open"
+  },
+  "keywords": [
+    "WebdriverIO",
+    "BDD",
+    "Cucumber",
+    "E2E",
+    "PageObject",
+    "JavaScript"
+  ],
+  "author": "Fernanda Ferreira",
+  "license": "MIT",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^6.1.23",
+    "@wdio/cli": "^6.2.0",
+    "@wdio/cucumber-framework": "^6.2.0",
+    "@wdio/local-runner": "^6.2.0",
+    "@wdio/selenium-standalone-service": "^6.1.14",
+    "@wdio/sync": "^6.2.0",
+    "wdio-cucumber-reporter": "0.0.2",
+    "allure-commandline": "^2.13.0",
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/register": "^7.10.3",
+    "@babel/runtime": "^7.10.3"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
