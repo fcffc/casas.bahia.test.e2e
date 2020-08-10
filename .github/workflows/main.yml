@@ -1,0 +1,38 @@
+name: "CI"
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: ['master', 'develop']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Instalar Dependências
+        run: npm install
+      - name: Tests
+        run: npm run test
+      - name: Gera relatório
+        run: npm run allure-report
+      - name: Upload TestResults folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: TestResults
+          path: /Users/runner/work/casas.bahia.e2e/casas.bahia.e2e/allure-report
+      - name: Upload TestResults API folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: TestApiResults
+          path: /Users/runner/work/casas.bahia.e2e/casas.bahia.e2e/allure-results
